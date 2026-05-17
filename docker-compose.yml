@@ -1,0 +1,32 @@
+services:
+
+  api:
+    build: .
+    image: tracking-app
+    command: uvicorn api:app --host 0.0.0.0 --port 8003
+    ports:
+      - "8003:8003"
+    volumes:
+      - ./outputs:/app/outputs
+      - ./videos:/app/videos
+      - ./mlruns:/app/mlruns
+
+  streamlit:
+    image: tracking-app
+    command: streamlit run app.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./outputs:/app/outputs
+      - ./videos:/app/videos
+      - ./mlruns:/app/mlruns
+    depends_on:
+      - api
+
+  mlflow:
+    image: tracking-app
+    command: mlflow ui --host 0.0.0.0 --port 5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlruns:/app/mlruns
