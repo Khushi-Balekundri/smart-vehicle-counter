@@ -36,8 +36,7 @@ The complete workflow is fully containerized and runs end-to-end using Docker Co
 ---
 
 # System Architecture Diagram
-
-
+<img width="1536" height="1024" alt="ChatGPT Image May 15, 2026, 04_13_12 PM" src="https://github.com/user-attachments/assets/f68356c8-7a50-4ff1-b53f-8e57d92122c1" />
 
 ---
 
