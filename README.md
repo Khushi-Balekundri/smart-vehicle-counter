@@ -160,8 +160,4 @@ Tracked experiments can be viewed through the MLflow dashboard.
 4. View total vehicle count  
 5. Inspect MLflow experiment logs  
 
----
 
-## Authors
-
-- Khushi B
