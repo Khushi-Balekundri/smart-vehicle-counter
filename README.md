@@ -4,7 +4,7 @@
 
 This project is a real-time traffic monitoring system that performs vehicle detection, multi-object tracking, and lane-wise vehicle counting from uploaded traffic videos.
 
-The system uses a custom-trained YOLOv11 model for vehicle detection and DeepSORT for persistent object tracking across frames. A FastAPI backend handles video processing requests, Streamlit provides the user interface, MLflow tracks training experiments, and Docker containerizes the complete application for reproducible deployment.
+The system uses a custom-trained YOLOv11 model for vehicle detection and ByteTrack for persistent object tracking across frames. A FastAPI backend handles video processing requests, Streamlit provides the user interface, MLflow tracks training experiments, and Docker containerizes the complete application for reproducible deployment.
 
 The complete workflow is fully containerized and runs end-to-end using Docker Compose.
 
@@ -13,7 +13,7 @@ The complete workflow is fully containerized and runs end-to-end using Docker Co
 ## Features
 
 - Real-time vehicle detection using custom-trained YOLOv11
-- Multi-object tracking using DeepSORT
+- Multi-object tracking using ByteTrack
 - Lane/zone-based vehicle counting
 - Vehicle ID persistence to avoid double counting
 - FastAPI backend for video processing
@@ -29,7 +29,7 @@ The complete workflow is fully containerized and runs end-to-end using Docker Co
 1. User uploads traffic video through Streamlit UI  
 2. Streamlit sends video to FastAPI backend  
 3. Backend processes frames using YOLOv11 detection  
-4. DeepSORT assigns persistent tracking IDs  
+4. ByteTrack assigns persistent tracking IDs  
 5. Vehicles crossing the counting line/zone are counted once  
 6. Processed video and statistics are returned to the UI  
 
@@ -45,7 +45,7 @@ The complete workflow is fully containerized and runs end-to-end using Docker Co
 | Component | Technology |
 |---|---|
 | Detection Model | YOLOv11 |
-| Tracking | DeepSORT |
+| Tracking | ByteTrack |
 | Backend API | FastAPI |
 | Frontend UI | Streamlit |
 | Experiment Tracking | MLflow |
@@ -80,8 +80,8 @@ The complete workflow is fully containerized and runs end-to-end using Docker Co
 ### Clone Repository
 
 ```bash
-git clone <your-repo-url>
-cd <repo-name>
+git clone https://github.com/Khushi-Balekundri/smart-vehicle-counter
+cd smart-vehicle-counter
 ```
 
 ---
@@ -134,7 +134,7 @@ Tracked experiments can be viewed through the MLflow dashboard.
 ## Vehicle Counting Logic
 
 - YOLOv11 detects vehicles in each frame
-- DeepSORT assigns unique tracking IDs
+- ByteTrack assigns unique tracking IDs
 - A counting line/zone is defined
 - Each vehicle is counted only once when crossing the zone
 - Persistent IDs help prevent double counting across frames
